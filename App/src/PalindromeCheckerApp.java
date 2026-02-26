@@ -1,18 +1,29 @@
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
+        String text = "radar";
 
-        String original = "noon";
+        char[] charArray = text.toCharArray();
+        int start = 0;
+        int end = charArray.length - 1;
 
-        String reversed = "";
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed = reversed + original.charAt(i);
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            if (charArray[start] != charArray[end]) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
         }
 
-        if (original.equals(reversed)) {
-            System.out.println("The given string \"" + original + "\" is a Palindrome.");
+        if (isPalindrome) {
+            System.out.println("The given string \"" + text + "\" is a Palindrome.");
         } else {
-            System.out.println("The given string \"" + original + "\" is NOT a Palindrome.");
+            System.out.println("The given string \"" + text + "\" is NOT a Palindrome.");
         }
     }
 }
